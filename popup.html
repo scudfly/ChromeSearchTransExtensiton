@@ -1,0 +1,38 @@
+<html lang="zh-CN">
+<meta charset="utf-8">
+
+<head>
+    <link rel="stylesheet" href="../css/element-ui.css">
+    <style>
+        #app {
+            padding-bottom: 5px;
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .el-image {
+            width: 32px;
+            height: 32px;
+        }
+        .el-link{
+            margin-right: 15px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" :style="{width: popWidth}">
+        <el-link v-for="element in bookmarkList" :href="element.url" :underline="false" target="_blank">
+            <el-image :key="element.id" fit="fill" :src="element.img" :alt="element.label" :title="element.label">
+            </el-image>
+        </el-link>
+    </div>
+</body>
+<script src="js/axios.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/element-ui.js"></script>
+<script src="js/popup.js"></script>
+
+</html>

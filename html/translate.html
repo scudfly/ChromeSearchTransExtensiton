@@ -1,0 +1,377 @@
+<html>
+
+<head>
+    <style>
+        .dictionary-wrap.dictionary-wrap-f {
+            position: relative;
+            zoom: 1;
+            border: 0;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            margin-top: 32px;
+            margin-bottom: 17px;
+        }
+
+        .output-mod {
+            border: 1px solid #eee;
+            border-left: 0;
+            padding: 0;
+        }
+
+        .dictionary-wrap.dictionary-wrap-f .simple-dict-f.simple-dict-f-nimg {
+            min-height: 90px;
+        }
+
+        .dictionary-wrap.dictionary-wrap-f .simple-dict-f {
+            border: 1px solid #eee;
+            padding: 17px 31px 21px;
+            background-color: #fff;
+        }
+
+        .output-bd {
+            font-family: Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, noto-fanyi !important;
+            width: 100%;
+        }
+
+        .dictionary-wrap .dictionary-output {
+            margin-bottom: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .dictionary-wrap .dictionary-title {
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+
+        .dictionary-wrap .strong {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+            line-height: 22px;
+            color: #333;
+            margin-right: 10px;
+        }
+
+        .dictionary-wrap .dictionary-spell {
+            color: #333;
+            margin-top: 9px;
+            overflow: hidden;
+        }
+
+        .dictionary-wrap .dictionary-spell .phonetic-transcription:first-child {
+            margin-right: 20px;
+        }
+
+        .dictionary-wrap .dictionary-spell .phonetic-transcription {
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .dictionary-wrap.dictionary-wrap-f .simple-dict-f .dictionary-comment {
+            margin-bottom: 0;
+        }
+
+        .dictionary-wrap .dictionary-comment p b~.dict-comment-mean {
+            padding-left: 30px;
+        }
+
+        .dictionary-wrap .dictionary-comment p .dict-comment-mean {
+            display: block;
+            font: 14px/22px Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+        }
+
+        .dictionary-wrap .dictionary-comment p b {
+            float: left;
+            font: 12px/22px Arial;
+            color: #888683;
+        }
+
+        .dictionary-wrap .dictionary-spell .phonetic-transcription span,
+        .dictionary-wrap .dictionary-spell .phonetic-transcription b,
+        .dictionary-wrap .dictionary-spell .phonetic-transcription a {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .dictionary-wrap .simple-dict .op-sound {
+            margin-right: 3px;
+        }
+
+        .op-sound {
+            width: 21px;
+            height: 21px;
+            padding: 1px 0 0 7px;
+        }
+
+        .op-sound,
+        .op-favo,
+        .op-copy,
+        .op-correct {
+            display: inline-block;
+            margin-right: 18px;
+            vertical-align: top;
+        }
+
+        .dictionary-wrap .dictionary-spell .phonetic-transcription span {
+            margin-right: 5px;
+            font: 700 14px Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+            color: #333;
+        }
+
+        .dictionary-wrap .dictionary-spell .phonetic-transcription span,
+        .dictionary-wrap .dictionary-spell .phonetic-transcription b,
+        .dictionary-wrap .dictionary-spell .phonetic-transcription a {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .icon-sound {
+            background-repeat: no-repeat;
+            background-image: url(https://fanyi-cdn.cdn.bcebos.com/static/translation/sprite/images/normal/index-sc413d90635_65ba9b0.png);
+            background-position: 0 -1046px;
+            height: 17px;
+            width: 19px;
+        }
+
+        .op-sound-active,
+        .op-sound-active:hover {
+            width: 31px;
+            height: 21px;
+            margin-right: 15px;
+            background-image: url(https://fanyi-cdn.cdn.bcebos.com/static/translation/img/translate/output/sound2x_d6f553d.gif);
+            background-image: url(https://fanyi-cdn.cdn.bcebos.com/static/translation/img/translate/output/sound1x_a31f763.gif) \9;
+            -webkit-background-size: 22px 21px;
+            -moz-background-size: 22px 21px;
+            background-size: 22px 21px;
+            background-repeat: no-repeat;
+            background-position: 7px -2px;
+            padding: 0;
+        }
+
+        .dictionary-wrap .simple-dict .op-repeat {
+            width: 22px;
+            height: 22px;
+            padding-left: 2px;
+            position: relative;
+            top: 1px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        .icon-repeat {
+            background-repeat: no-repeat;
+            background-image: url(https://fanyi-cdn.cdn.bcebos.com/static/translation/sprite/images/normal/index-sc413d90635_65ba9b0.png);
+            background-position: 0 -887px;
+            height: 19px;
+            width: 19px;
+        }
+
+        .dictionary-wrap .dictionary-exchange {
+            margin-top: 20px;
+            line-height: 22px;
+            overflow: hidden;
+        }
+
+        .dictionary-wrap .dictionary-exchange>p {
+            display: inline-block;
+        }
+
+        .dictionary-wrap .dictionary-exchange .word-can-trans {
+            margin-right: 15px;
+            font-size: 13px;
+            font-family: Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+            display: inline-block;
+        }
+
+        .dictionary-wrap .dictionary-exchange span a {
+            margin-right: 5px;
+            color: #4395ff;
+            text-decoration: underline;
+        }
+
+        .dictionary-wrap .dictionary-derivative {
+            line-height: 23px;
+            font-size: 13px;
+        }
+
+        .dictionary-wrap .dictionary-derivative .dr-item {
+            display: inline-block;
+            margin-right: 13px;
+        }
+
+        .dictionary-wrap .dictionary-derivative .dr-item span {
+            margin-right: 4px;
+        }
+
+        .f-link {
+            color: #4395ff;
+            text-decoration: underline;
+        }
+
+        .dictionary-wrap .dictionary-comment p {
+            font-size: 14px;
+            font-family: Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+            line-height: 22px;
+            color: #333;
+        }
+
+        body,
+        div,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        pre,
+        code,
+        form,
+        fieldset,
+        legend,
+        input,
+        textarea,
+        p,
+        blockquote,
+        th,
+        td {
+            margin: 0;
+            padding: 0;
+        }
+
+        .dictionary-wrap .dictionary-comment {
+            margin-top: 7px;
+            margin-bottom: 14px;
+        }
+
+        .dictionary-wrap .dictionary-derivative .dr-item .dr-p {
+            color: #999;
+            margin-left: -1px;
+        }
+
+        .dictionary-wrap .dictionary-derivative .dr-item span {
+            margin-right: 4px;
+        }
+
+        .dictionary-wrap.dictionary-wrap-f .simple-dict-f .dictionary-bottom {
+            margin-top: 13px;
+            padding-top: 13px;
+            border-top: 1px solid #eee;
+        }
+
+        .dictionary-wrap .dictionary-memory {
+            line-height: 23px;
+            font-size: 13px;
+        }
+
+        .dictionary-wrap .dictionary-memory {
+            line-height: 23px;
+            font-size: 13px;
+        }
+
+        .dictionary-wrap.dictionary-wrap-f .simple-dict-f .dictionary-bottom .dictionary-memory+.dictionary-tags {
+            margin-top: 9px;
+        }
+
+        .dictionary-wrap .dictionary-tags li {
+            display: inline-block;
+            color: #999;
+            font-size: 12px;
+            padding: 0 6px;
+            background: #f2f2f2;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            height: 20px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            line-height: 20px;
+            margin-right: 12px;
+        }
+
+        .dictionary-wrap .dictionary-spell .phonetic-transcription b {
+            display: inline;
+            font-weight: 400;
+            font: 14px Arial;
+            color: #333;
+            vertical-align: middle;
+            line-height: 22px;
+        }
+    </style>
+</head>
+
+<body style="width: 610px;">
+    <div class="output-mod dictionary-wrap dictionary-wrap-f result-section" data-nav-text="简明释义">
+        <div class="simple-dict simple-dict-f simple-dict-f-nimg">
+            <div class="output-bd clearfix" dir="ltr">
+                <div class="dictionary-output">
+                    <div class="dictionary-title">
+                        <h3 class="strong">component</h3>
+                        <div class="dictionary-spell">
+                            <span class="phonetic-transcription">
+                                <span>英</span> <b>[kəmˈpəʊnənt]</b>
+                                <a href="javascript:void(0);" data-sound-lan="uk&amp;lock" data-sound-text="component"
+                                    class="op-sound">
+                                    <span class="icon-sound sound-btn"></span> </a> <a href="javascript:void(0);"
+                                    data-sound-lan="uk&amp;lock" data-sound-text="component" data-hover-tip-text="复读"
+                                    class="op-repeat data-hover-tip"> <span class="icon-repeat sound-btn"></span> </a>
+                            </span> <span class="phonetic-transcription"> <span>美</span> <b>[kəmˈpoʊnənt]</b> <a
+                                    href="javascript:void(0);" data-sound-lan="en&amp;lock" data-sound-text="component"
+                                    class="op-sound"> <span class="icon-sound sound-btn"></span> </a> <a
+                                    href="javascript:void(0);" data-sound-lan="en&amp;lock" data-sound-text="component"
+                                    data-hover-tip-text="复读" class="op-repeat data-hover-tip"> <span
+                                        class="icon-repeat sound-btn"></span> </a> </span> </div>
+                    </div>
+                    <div class="dictionary-comment">
+                        <p> <b>n.</b> <strong class="dict-comment-mean"> <span>组成部分</span><span
+                                    class="dict-margin">;</span><span>成分</span><span
+                                    class="dict-margin">;</span><span>部件</span> </strong> </p>
+                        <p> <b>adj.</b> <strong class="dict-comment-mean"> <span>成分的</span><span
+                                    class="dict-margin">;</span><span>组成的</span><span
+                                    class="dict-margin">;</span><span>合成的</span><span
+                                    class="dict-margin">;</span><span>构成的</span> </strong> </p>
+                    </div>
+                </div>
+                <div class="dictionary-exchange">
+                    <p> <span class="word-can-trans">复数： <a href="/#en/zh/components" class="sec-trans"
+                                data-stat-id="69" data-stat-add="复数">components</a> </span> </p>
+                </div>
+                <div class="dictionary-derivative"> <span>派生词：</span>
+                    <p class="dr-item"> <span class="word-can-trans"><a class="f-link sec-trans"
+                                href="/#en/zh/component" data-stat-id="69" data-stat-add="派生词">component</a></span>
+                        <span class="dr-p">adj.</span> </p>
+                </div>
+            </div>
+            <div class="dictionary-bottom clearfix">
+                <div class="dictionary-memory"> <span class="memory-tit">记忆技巧：</span><span class="momory-skill">com 共同 +
+                        pon 放，放置 + ent 关于…的 → 共同放到一起 → 组成的</span> </div>
+                <ol class="dictionary-tags">
+                    <li>高考</li>
+                    <li>CET4</li>
+                    <li>考研</li>
+                    <li>IELTS</li>
+                    <li>TOEFL</li>
+                    <li>SAT</li>
+                </ol>
+            </div>
+            <!--<div class="output-hd clearfix"> <div class="output-tip">  </div> </div>-->
+        </div>
+    </div>
+</body>
+
+</html>
