@@ -1,0 +1,2 @@
+# ChromeSearchTransExtensiton
+谷歌浏览器搜索和翻译扩展
