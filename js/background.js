@@ -84,6 +84,7 @@ function fanyi(word, tabId, fn){
 		"sign": e(word),
 		"token": token,
 		"domain": "common",
+		"transtype": "realtime"
 	}, function (data) {
 		fn(data, tabId);
 	});
